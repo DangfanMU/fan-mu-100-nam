@@ -13,6 +13,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="TechStore - Mua Sắm Công Nghệ Uy Tín">
   <meta property="og:description" content="Trải nghiệm mua sắm thiết bị công nghệ chính hãng giá tốt nhất.">
+  <!-- [GITHUB]: Thay bằng URL ảnh công khai (HTTPS) hoặc đường dẫn hợp lệ trong repo (VD: ./assets/images/og-cover.jpg).
+       Lưu ý: Nên dùng link HTTPS đầy đủ nếu chia sẻ link trên mạng xã hội. -->
   <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200">
 
   <!-- Tailwind CSS CDN -->
@@ -99,8 +101,9 @@
 
       <!-- Buttons Tương Tác (Auth & Cart) -->
       <div class="flex items-center gap-2">
-        <button onclick="toggleModal('authModal')" class="p-2.5 rounded-xl hover:bg-slate-100 text-slate-600 transition" title="Tài khoản">
-          <i class="fa-regular fa-user text-lg"></i>
+        <!-- [GITHUB - AVATAR HEADER]: Đặt file ảnh tại ./assets/image_e65a61.jpg trong repo GitHub -->
+        <button onclick="toggleModal('authModal')" class="p-1 rounded-full hover:ring-2 hover:ring-brand-500/40 transition" title="Tài khoản">
+          <img src="./assets/image_e65a61.jpg" alt="Avatar Web" class="site-avatar w-9 h-9 rounded-full object-cover border border-slate-200">
         </button>
 
         <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl hover:bg-slate-100 text-slate-600 transition" title="Giỏ hàng">
@@ -136,6 +139,7 @@
             </div>
           </div>
           <div class="w-full max-w-md z-10">
+            <!-- [GITHUB - HÌNH ẢNH BANNER]: Thay src bằng ảnh trong repo (VD: ./assets/hero.jpg) hoặc ảnh cá nhân/sản phẩm của bạn -->
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800" alt="Tech Gadgets Showcase" class="rounded-2xl shadow-2xl object-cover w-full h-80 border-4 border-white/10" loading="lazy">
           </div>
         </div>
@@ -307,7 +311,9 @@
   <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm hidden">
     <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
       <button onclick="toggleModal('authModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl font-bold">&times;</button>
-      <h3 class="text-xl font-bold mb-4 text-slate-900">Đăng Nhập Khách Hàng</h3>
+      <!-- [GITHUB - AVATAR MODAL]: Hiển thị avatar web tại ./assets/image_e65a61.jpg -->
+      <img src="./assets/image_e65a61.jpg" alt="Avatar Web" class="site-avatar w-16 h-16 rounded-full object-cover mx-auto mb-3 border border-slate-200 shadow-sm">
+      <h3 class="text-xl font-bold mb-4 text-slate-900 text-center">Đăng Nhập Khách Hàng</h3>
       <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
         <div>
           <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
@@ -335,7 +341,9 @@
           <option value="Smartphone">Smartphone</option>
           <option value="Phụ kiện">Phụ kiện</option>
         </select>
-        <input type="url" id="newProdImage" placeholder="URL Hình ảnh" required class="w-full p-2.5 border rounded-xl text-sm">
+        <!-- [GITHUB - NHẬP ẢNH KHI THÊM SẢN PHẨM]: Nhập đường dẫn tương đối trong repo (VD: ./assets/products/sp1.jpg)
+             hoặc link ảnh HTTPS công khai. Lưu ý: thay type="url" thành type="text" nếu muốn nhập đường dẫn tương đối như ./assets/... -->
+        <input type="url" id="newProdImage" placeholder="URL Hình ảnh (VD: https://... hoặc ./assets/sp1.jpg)" required class="w-full p-2.5 border rounded-xl text-sm">
         <textarea id="newProdDesc" placeholder="Mô tả sản phẩm" class="w-full p-2.5 border rounded-xl text-sm"></textarea>
         <button type="submit" class="w-full py-2.5 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition">Lưu Sản Phẩm</button>
       </form>
@@ -351,6 +359,10 @@
   <!-- Footer -->
   <footer class="bg-slate-900 text-slate-400 text-sm py-10 mt-16 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+      <!-- [GITHUB - FOOTER AVATAR]: Dùng chung ảnh avatar ./assets/image_e65a61.jpg -->
+      <div class="flex justify-center">
+        <img src="./assets/image_e65a61.jpg" alt="Avatar Web" class="site-avatar w-12 h-12 rounded-full object-cover border-2 border-slate-700">
+      </div>
       <p class="font-semibold text-slate-200">&copy; 2026 TechStore E-Commerce. Tất cả quyền được bảo lưu.</p>
       <p class="text-xs text-slate-500">
         Xây dựng và phát triển bởi <strong class="text-slate-300">Nguyễn Võ Thiên Đăng</strong> & <strong class="text-slate-300">Lê Thành Tài</strong>.
@@ -361,6 +373,9 @@
   <!-- ==================== JAVASCRIPT LOGIC ==================== -->
   <script>
     /* 1. DỮ LIỆU MẪU (MOCK DATA) - TÁCH BIỆT DỮ LIỆU */
+    /* [GITHUB - DỮ LIỆU & HÌNH ẢNH]: Thay đổi trường `image` sang ảnh có trong repo của bạn (VD: "./assets/products/macbook.jpg")
+       hoặc link ảnh bên ngoài. Nhớ commit cả thư mục ảnh lên GitHub để tránh ảnh bị vỡ khi deploy.
+       Lưu ý: Dữ liệu thêm/xóa trên trang Admin hiện lưu trên bộ nhớ trình duyệt (RAM), tải lại trang sẽ reset về mảng PRODUCTS ban đầu. */
     let PRODUCTS = [
       { id: 1, name: "MacBook Pro 14 M3", price: 42990000, category: "Laptop", image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600", featured: true, desc: "Chip Apple M3 mạnh mẽ, màn hình Liquid Retina XDR sắc nét." },
       { id: 2, name: "iPhone 15 Pro Max 256GB", price: 34990000, category: "Smartphone", image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600", featured: true, desc: "Khung vỏ Titanium siêu bền nhẹ, Camera 48MP zoom quang 5x." },
@@ -369,6 +384,9 @@
       { id: 5, name: "Dell XPS 13 9320", price: 38500000, category: "Laptop", image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=600", featured: true, desc: "Thiết kế tương lai viền mỏng, vi xử lý Intel Core i7 thế hệ mới." }
     ];
 
+    /* [GITHUB - AVATAR WEB]: Lưu file ảnh đã gửi vào thư mục ./assets/image_e65a61.jpg trong repo.
+       Nếu đổi tên hoặc đặt ở thư mục khác, chỉ cần sửa giá trị AVATAR_IMAGE dưới đây. */
+    const AVATAR_IMAGE = "./assets/image_e65a61.jpg";
     const CATEGORIES = ["Tất cả", "Laptop", "Smartphone", "Phụ kiện"];
     let CART = [];
     let activeCategory = "Tất cả";
@@ -633,8 +651,15 @@
       }, 3000);
     }
 
+    function applySiteAvatar() {
+      document.querySelectorAll('.site-avatar').forEach(img => {
+        img.src = AVATAR_IMAGE;
+      });
+    }
+
     /* Đợi DOM sẵn sàng để khởi chạy */
     window.addEventListener('DOMContentLoaded', () => {
+      applySiteAvatar();
       renderCategoryFilters();
       renderProducts();
     });
